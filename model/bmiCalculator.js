@@ -11,6 +11,9 @@ const bmiSchema = new Schema({
     },
     bmiCalculation : {
         type: Number
+    },
+    userid : {
+        type: String
     }
 })
 

@@ -20,10 +20,10 @@ const BmiCalculator = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault();
+    let getId = JSON.parse(localStorage.getItem("pvtroute"))
     axios
-      .post("https://scarlet-firefly-veil.cyclic.app/bmi/bmical", calValue)
+      .post(`https://scarlet-firefly-veil.cyclic.app/bmi/bmical/${getId.userId}`, calValue)
       .then((res) => {
-        // console.log(res.data);
         alert("Add Data Successfully");
         getBmiData();
         setValue({...init})
@@ -34,10 +34,10 @@ const BmiCalculator = () => {
       });
   }
   const getBmiData = ()=>{
+    let getId = JSON.parse(localStorage.getItem("pvtroute"))
     axios
-      .get("https://scarlet-firefly-veil.cyclic.app/bmi/getBmiValue")
+      .get(`https://scarlet-firefly-veil.cyclic.app/bmi/getBmiValue/${getId.userId}`)
       .then((res) => {
-        console.log(res.data.getBmiValue);
         setData(res.data.getBmiValue)
       })
       .catch((err) => {

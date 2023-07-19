@@ -13,20 +13,19 @@ const Getbmi = ({data}) => {
     <div>
           {data?.length != 0 ? (
               <>
-               <TableContainer class="" style={{border: "1px solid white", marginTop: "2rem"}}  component={Paper}>
+               <TableContainer className="" style={{border: "1px solid white", marginTop: "2rem"}}  component={Paper}>
       <Table sx={{ minWidth: 800 }} style={{border: "1px solid white"}} aria-label="simple table">
-        <TableHead class="bg-purple-700 h-12 ">
+        <TableHead >
           <TableRow style={{border: "1px solid white"}}>
-            <TableCell class="text-white" align="center">Weight</TableCell>
-            <TableCell class="text-white" align="center">Height</TableCell>
-            <TableCell class="text-white" align="center">Value</TableCell>
+            <TableCell align="center">Weight</TableCell>
+            <TableCell align="center">Height</TableCell>
+            <TableCell align="center">Value</TableCell>
           </TableRow>
         </TableHead>
         <TableBody style={{border: "1px solid #7e22ce"}}>
-          {data.map((e) => (
+          {data?.map((e) => (
             <TableRow
-              key={e.name}
-              
+              key={e._id}
             >
               <TableCell align="center">{e?.weight}</TableCell>
               <TableCell align="center">{e.height}</TableCell>
