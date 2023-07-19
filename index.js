@@ -19,5 +19,5 @@ const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, async () => {
   await connection;
-  console.log("Server started on http://localhost:8080");
+  console.log(`Server started on http://localhost:${PORT}`);
 });
