@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css";
 import axios from 'axios';
+import Getbmi from './Getbmi';
 
 const init = {
   weight : 0,
@@ -9,6 +10,7 @@ const init = {
 
 const BmiCalculator = () => {
   const [calValue, setValue] = useState(init);
+  const [data, setData] = useState([]);
   // console.log(calValue);
 
   const handleChange = (e) => {
@@ -22,6 +24,7 @@ const BmiCalculator = () => {
       .post("http://localhost:8080/bmi/bmical", calValue)
       .then((res) => {
         // console.log(res.data);
+        alert("Add Data Successfully");
         setValue({...init})
       })
       .catch((err) => {
@@ -29,6 +32,21 @@ const BmiCalculator = () => {
         console.log("error", err);
       });
   }
+  const getBmiData = ()=>{
+    axios
+      .get("http://localhost:8080/bmi/getBmiValue")
+      .then((res) => {
+        console.log(res.data.getBmiValue);
+        setData(res.data.getBmiValue)
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  }
+
+  useEffect(()=>{
+    getBmiData()
+  },[])
 
   return (
     <div>
@@ -37,15 +55,6 @@ const BmiCalculator = () => {
       <form onSubmit={handleSubmit}>
         <br />
         <span>Weight &nbsp;
-        {/* <input
-          type="number"
-          name="weight"
-          className="weightinp"
-          placeholder="Weight"
-          onChange={handleChange}
-          value={calValue.weight}
-          required
-        /> */}
         <input
           type="number"
           name="weight"
@@ -68,8 +77,8 @@ const BmiCalculator = () => {
         <input className="calbtn" type="submit" value="Get BMI" />
       </form>
       </div>
+      <div><Getbmi data={data}/></div>
     </div>
   )
 }
-// http://localhost:8080/bmi/getBmiValue
 export default BmiCalculator
