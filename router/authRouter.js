@@ -22,7 +22,7 @@ authRouter.post("/signup", async (req, res) => {
         return res.status(201).json({ msg: "User created", newuser });
       }
     } catch (error) {
-      return res.status(500).json({ msg: "Server error", error });
+      return res.status(500).json({ msg: "Server error", Error :error });
     }
   });
 
@@ -59,7 +59,7 @@ authRouter.post("/login", async (req, res) => {
           return res.status(400).send({msg: "password does not match"})
       }
     } catch (error) {
-      return res.status(500).send({msg: "Server error"})
+      return res.status(500).send({msg: "Server error", Error: error})
     }
   });
 

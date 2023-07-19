@@ -17,7 +17,7 @@ bmiRouter.post('/bmical', async(req, res)=>{
             return res.status(201).json({msg : "Bmi calculated", calculate});
         }
     } catch (error) {
-        return res.status(500).json({msg : "server error", error});
+        return res.status(500).json({msg : "server error", Error: error});
     }
 })
 
@@ -29,7 +29,7 @@ bmiRouter.get('/getBmiValue', async(req, res)=>{
             return res.status(200).json({msg : "Bmi getBmiValue", getBmiValue});
         }
     } catch (error) {
-        return res.status(500).json({msg : "server error", error});
+        return res.status(500).json({msg : "server error", Error :error});
     }
 })
 
