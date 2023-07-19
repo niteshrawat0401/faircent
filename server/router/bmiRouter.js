@@ -22,4 +22,16 @@ bmiRouter.post('/bmical', async(req, res)=>{
     }
 })
 
+bmiRouter.get('/getBmiValue', async(req, res)=>{
+    // const {weight, height} = req.body;
+    const getBmiValue = await Bmi.find({})
+    try {
+        if(getBmiValue){
+            return res.status(201).json({msg : "Bmi getBmiValue", getBmiValue});
+        }
+    } catch (error) {
+        return res.status(500).json({msg : "server error", error});
+    }
+})
+
 module.exports = bmiRouter
