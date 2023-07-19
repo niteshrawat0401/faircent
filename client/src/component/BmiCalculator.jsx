@@ -25,6 +25,7 @@ const BmiCalculator = () => {
       .then((res) => {
         // console.log(res.data);
         alert("Add Data Successfully");
+        getBmiData();
         setValue({...init})
       })
       .catch((err) => {

@@ -41,7 +41,7 @@ const Getbmi = ({data}) => {
               <div style={{ textAlign: "center", marginTop: '10rem' }}>
                 {/* <img style={{ width: "70%" }} src={empty} alt="empty data" /> */}
                 <h3 style={{ position: "relative", top: "-3.5rem" }}>
-                  Data not matched
+                  Loading.....
                 </h3>
               </div>
             )}
