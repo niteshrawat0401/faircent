@@ -4,8 +4,8 @@ import axios from 'axios';
 import Getbmi from './Getbmi';
 
 const init = {
-  weight : 0,
-  height : 0
+  weight : "",
+  height : ""
 }
 
 const BmiCalculator = () => {
@@ -57,7 +57,7 @@ const BmiCalculator = () => {
         <br />
         <span>Weight &nbsp;
         <input
-          type="number"
+          type="text"
           name="weight"
           className="weightinp"
           placeholder="Weight"
@@ -67,7 +67,7 @@ const BmiCalculator = () => {
         />
         </span>
         <span>Height &nbsp;<input
-          type="number"
+          type="text"
           name="height"
           className="heightinp"
           placeholder="Height"
