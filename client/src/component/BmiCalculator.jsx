@@ -1,21 +1,33 @@
 import React, { useState } from 'react'
-import "./style.css"
+import "./style.css";
+import axios from 'axios';
 
 const init = {
-  weight : "",
-  height : ""
+  weight : 0,
+  height : 0
 }
 
 const BmiCalculator = () => {
-  const [value, setValue] = useState(init);
+  const [calValue, setValue] = useState(init);
+  // console.log(calValue);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValue({ ...value, [name]: value });
+    setValue({ ...calValue, [name]: value });
   };
 
-  const handleSubmit = ()=>{
-    
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    axios
+      .post("http://localhost:8080/bmi/bmical", calValue)
+      .then((res) => {
+        // console.log(res.data);
+        setValue({...init})
+      })
+      .catch((err) => {
+        alert("Something went wrong");
+        console.log("error", err);
+      });
   }
 
   return (
@@ -25,23 +37,32 @@ const BmiCalculator = () => {
       <form onSubmit={handleSubmit}>
         <br />
         <span>Weight &nbsp;
-        <input
-          type="text"
+        {/* <input
+          type="number"
           name="weight"
           className="weightinp"
           placeholder="Weight"
           onChange={handleChange}
-          value={value.name}
+          value={calValue.weight}
+          required
+        /> */}
+        <input
+          type="number"
+          name="weight"
+          className="weightinp"
+          placeholder="Weight"
+          onChange={handleChange}
+          value={calValue.weight}
           required
         />
         </span>
         <span>Height &nbsp;<input
-          type="text"
+          type="number"
           name="height"
           className="heightinp"
           placeholder="Height"
           onChange={handleChange}
-          value={value.email}
+          value={calValue.height}
           required
         /></span>
         <input className="calbtn" type="submit" value="Get BMI" />
@@ -50,5 +71,5 @@ const BmiCalculator = () => {
     </div>
   )
 }
-
+// http://localhost:8080/bmi/getBmiValue
 export default BmiCalculator
