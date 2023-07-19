@@ -3,7 +3,7 @@
 <br/>
 <h2>About</h2>
 
-<h2>This website is about calculating the BMI of humans.</h2>
+<h3>Accurate BMI calculations for individuals, helping assess health and fitness levels based on height and weight measurements.</h3>
 
 <h2>Deploy Link</h2>
 
