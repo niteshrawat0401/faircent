@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <div className="nav_div">
       <div className="innerDiv py-4	">
-        <h3 ><Link style={{color: 'white'}} to="/bmscalculator">Bms Calculator</Link></h3>
+        <h3 ><Link style={{color: 'white'}} to="/bmscalculator">Bmi Calculator</Link></h3>
         {pvtroute===null? (< Link to={"/"} style={{color: 'white', marginTop: '1.4rem'}} onClick={()=> navigate("/")}>Login </Link>):
         (<h4 style={{color: 'white', cursor: "pointer"}} onClick={logout}>Logout <Link style={{color: 'white'}}>{pvtroute.name}</Link></h4>)}
       </div>
