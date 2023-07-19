@@ -26,7 +26,7 @@ bmiRouter.get('/getBmiValue', async(req, res)=>{
     const getBmiValue = await Bmi.find({})
     try {
         if(getBmiValue){
-            return res.status(201).json({msg : "Bmi getBmiValue", getBmiValue});
+            return res.status(200).json({msg : "Bmi getBmiValue", getBmiValue});
         }
     } catch (error) {
         return res.status(500).json({msg : "server error", error});
