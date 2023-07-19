@@ -1,2 +1,3 @@
 const mongoose  = require('mongoose');//faircent
-module.exports = mongoose.connect('mongodb+srv://niteshrawat0401:faircent@cluster0.pxahd6v.mongodb.net/faircent?retryWrites=true&w=majority');
+require("dotenv").config()
+module.exports = mongoose.connect(process.env.MONGO_URL);
